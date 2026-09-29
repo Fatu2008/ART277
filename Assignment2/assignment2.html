@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital profile of Fatu Kollie, a Business Information Technology student focused on system administration.">
+  <title>Fatu Kollie | Digital Profile</title>
+  <style>
+
+:root {
+  --bg: #eef2f5;        /* page background, cool grey */
+  --panel: #ffffff;     /* card surface */
+  --ink: #14212b;       /* main text */
+  --muted: #4a5b68;     /* secondary text */
+  --accent: #0f6b7a;      table header */
+  --accent-ink: #ffffff;
+  --line: #cfd8de;   
+
+
+
+  --space: 1.5rem;
+  --radius: 6px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.75rem; }
+p { margin: 0 0 1rem; max-width: 65ch; } 
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+
+
+.site-header {
+  padding: 3rem var(--space) 2.5rem;
+  background: var(--ink);
+  color: #ffffff;
+  border-bottom: 6px solid var(--accent);
+}
+
+.site-header h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+.program { font-size: 1.25rem; margin-bottom: 0.25rem; }
+.goal    { color: #c5d3dc; margin: 0; }
+
+.site-footer {
+  padding: var(--space);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0 auto; }
+
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--space);
+  max-width: 68rem;
+  margin: var(--space) auto;
+  padding: 0 var(--space);
+  align-items: start;
+}
+
+#about    { grid-column: 1; grid-row: 1; }
+#contact  { grid-column: 1; grid-row: 2; }
+#skills   { grid-column: 2; grid-row: 1; }
+#projects { grid-column: 2; grid-row: 2; }
+
+/* 5. PANELS, TABLE, LISTS */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space);
+}
+
+.panel h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.975rem;
+}
+
+caption {
+  text-align: left;
+  color: var(--muted);
+  padding-bottom: 0.5rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+thead th {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-bottom: 0;
+}
+
+tbody tr:last-child td { border-bottom: 0; }
+
+.project-list,
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-list li { padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.project-list li:first-child { padding-top: 0; }
+.project-list li:last-child  { border-bottom: 0; padding-bottom: 0; }
+.project-list h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+.project-list p  { margin: 0; color: var(--muted); }
+
+.contact-list li { padding: 0.25rem 0; overflow-wrap: anywhere; }
+
+/* 6. ACCESSIBILITY */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Hidden until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: var(--space);
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius);
+}
+.skip-link:focus { top: 0.5rem; }
+
+/* 7. RESPONSIVE AND DARK MODE */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+
+  /* Reset the explicit placement so panels stack in HTML order */
+  #about, #contact, #skills, #projects {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* Let the table scroll sideways instead of breaking the page */
+  #skills { overflow-x: auto; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e161c;
+    --panel: #16222b;
+    --ink: #e6edf1;
+    --muted: #9fb2bf;
+    --accent: #4fb3c4;
+    --accent-ink: #0e161c;
+    --line: #2a3a46;
+  }
+  .site-header { background: #0a1116; }
+}
+  </style>
+</head>
+<body>
+
+
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <header class="site-header">
+    <h1>Fatu Kollie</h1>
+    <p class="program"> Information Technology, System Administration focus</p>
+    <p class="goal">Looking for a system administration internship.</p>
+  </header>
+
+  <main class="layout">
+
+
+    <section id="about" class="panel">
+      <h2>About me</h2>
+      <p>
+        I'm studying information technology with a focus on system administration.
+        I like the work behind the scenes: user accounts, permissions, networks,
+        backups, and the documentation that lets someone else pick up where I left off.
+      </p>
+    </section>
+
+
+    <section id="skills" class="panel">
+      <h2>Skills</h2>
+      <table>
+        <caption>Current skills and where I have used them</caption>
+        <thead>
+          <tr>
+            <th scope="col">Skill</th>
+            <th scope="col">Level</th>
+            <th scope="col">Used in</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTML and CSS</td>
+            <td>Learning</td>
+            <td>Assignments 1 and 2</td>
+          </tr>
+          <tr>
+            <td>Microsoft Excel</td>
+            <td>Learning</td>
+            <td>Practice with text, math, logic, lookup, and date functions</td>
+          </tr>
+          <tr>
+            <td>Git and GitHub</td>
+            <td>Learning</td>
+            <td>Deploying this project</td>
+          </tr>
+          <tr>
+            <td>Troubleshooting</td>
+            <td>Learning</td>
+            <td>BIT coursework</td>
+          </tr>
+          <tr>
+            <td>Documentation and planning</td>
+            <td>Comfortable</td>
+            <td>Study plans, project proposal, and code comments</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- PROJECTS: keep to real work; update as new projects are finished -->
+    <section id="projects" class="panel">
+      <h2>Projects</h2>
+      <ul class="project-list">
+        <li>
+          <h3>Final project proposal (student success course)</h3>
+          <p>A written proposal tailored to a BIT career path, delivered as a PDF.</p>
+        </li>
+        <li>
+          <h3>Week 3 study plan</h3>
+          <p>Structured daily study sessions using the Cornell note-taking method, delivered in Word and PDF.</p>
+        </li>
+        <li>
+          <h3>Assignment 2: The Digital Profile</h3>
+          <p>This page. Semantic HTML, a separate stylesheet, and a Grid layout, deployed through GitHub.</p>
+        </li>
+      </ul>
+    </section>
+
+
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><a href="mailto:Kolliefatu64@gmail.com">Kolliefatu64@gmail.com</a></li>
+        <li><a href="https://github.com/Fatu2008">github.com/Fatu2008</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Fatu Kollie. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+

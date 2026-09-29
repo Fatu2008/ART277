@@ -1,0 +1,183 @@
+/*
+  style.css for Assignment2.html (The Digital Profile)
+
+  Sections:
+  1. Design tokens (colors, spacing, type)
+  2. Base
+  3. Header and footer
+  4. Layout (CSS Grid)
+  5. Panels, table, lists
+  6. Accessibility
+  7. Responsive and dark mode
+*/
+
+/* 1. DESIGN TOKENS: change the look of the whole page from here */
+:root {
+  --bg: #eef2f5;        /* page background, cool grey */
+  --panel: #ffffff;     /* card surface */
+  --ink: #14212b;       /* main text */
+  --muted: #4a5b68;     /* secondary text */
+  --accent: #0f6b7a;    /* links, headings accents, table header */
+  --accent-ink: #ffffff;/* text on top of accent */
+  --line: #cfd8de;      /* borders and dividers */
+
+  --space: 1.5rem;
+  --radius: 6px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* 2. BASE */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.75rem; }
+p { margin: 0 0 1rem; max-width: 65ch; } /* keeps lines readable */
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+
+/* 3. HEADER AND FOOTER */
+.site-header {
+  padding: 3rem var(--space) 2.5rem;
+  background: var(--ink);
+  color: #ffffff;
+  border-bottom: 6px solid var(--accent);
+}
+
+.site-header h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+.program { font-size: 1.25rem; margin-bottom: 0.25rem; }
+.goal    { color: #c5d3dc; margin: 0; }
+
+.site-footer {
+  padding: var(--space);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0 auto; }
+
+/* 4. LAYOUT: two columns on wide screens, About and Contact stack on the left */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--space);
+  max-width: 68rem;
+  margin: var(--space) auto;
+  padding: 0 var(--space);
+  align-items: start;
+}
+
+#about    { grid-column: 1; grid-row: 1; }
+#contact  { grid-column: 1; grid-row: 2; }
+#skills   { grid-column: 2; grid-row: 1; }
+#projects { grid-column: 2; grid-row: 2; }
+
+/* 5. PANELS, TABLE, LISTS */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space);
+}
+
+.panel h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.975rem;
+}
+
+caption {
+  text-align: left;
+  color: var(--muted);
+  padding-bottom: 0.5rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+thead th {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-bottom: 0;
+}
+
+tbody tr:last-child td { border-bottom: 0; }
+
+.project-list,
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-list li { padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+.project-list li:first-child { padding-top: 0; }
+.project-list li:last-child  { border-bottom: 0; padding-bottom: 0; }
+.project-list h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+.project-list p  { margin: 0; color: var(--muted); }
+
+.contact-list li { padding: 0.25rem 0; overflow-wrap: anywhere; }
+
+/* 6. ACCESSIBILITY */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Hidden until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: var(--space);
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius);
+}
+.skip-link:focus { top: 0.5rem; }
+
+/* 7. RESPONSIVE AND DARK MODE */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+
+  /* Reset the explicit placement so panels stack in HTML order */
+  #about, #contact, #skills, #projects {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* Let the table scroll sideways instead of breaking the page */
+  #skills { overflow-x: auto; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e161c;
+    --panel: #16222b;
+    --ink: #e6edf1;
+    --muted: #9fb2bf;
+    --accent: #4fb3c4;
+    --accent-ink: #0e161c;
+    --line: #2a3a46;
+  }
+  .site-header { background: #0a1116; }
+}
